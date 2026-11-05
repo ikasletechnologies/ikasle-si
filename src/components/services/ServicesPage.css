@@ -1,0 +1,539 @@
+/* Headings, steps, buttons and the closing band come from the Industries page's shared styles. */
+
+.services-page__title {
+  position: absolute;
+  overflow: hidden;
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  white-space: nowrap;
+}
+
+/* ---------- Service panels ---------- */
+
+.service-list {
+  display: grid;
+  gap: 12px;
+}
+
+.service-panel {
+  --r: 0ms;
+  min-width: 0;
+}
+
+.service-panel__frame {
+  position: relative;
+  overflow: hidden;
+  container-type: inline-size;
+  border: 1px solid #1f2d34;
+  border-radius: 16px;
+  background: linear-gradient(100deg, #0f181df2, #070c0ff7);
+  box-shadow: inset 0 1px #ffffff0a;
+}
+
+.service-panel__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 0.62fr) 1px minmax(0, 1.9fr);
+  align-items: stretch;
+  gap: 18px;
+  padding: 18px 18px 18px 22px;
+}
+
+.service-panel__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.service-panel__number {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: #19e6f0;
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.service-panel__number::after {
+  content: '';
+  width: 1.5px;
+  height: 22px;
+  background: #19e6f0;
+}
+
+.service-panel h2 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: clamp(25px, 3cqi, 32px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+}
+
+.service-panel__copy > p {
+  margin: 0 0 14px;
+  color: #dfe5e8;
+  font-size: 15px;
+  line-height: 1.38;
+}
+
+.service-panel__explore {
+  min-width: 118px;
+  margin-top: auto;
+  font-size: 15px;
+}
+
+.service-panel__art {
+  position: relative;
+  align-self: center;
+  min-width: 0;
+}
+
+.service-panel__art .contact-art {
+  width: 100%;
+  margin: 0;
+}
+
+.service-panel__divider {
+  background: #ffffff21;
+}
+
+.service-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-feature {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px 12px 13px;
+  border: 1px solid #22323a;
+  border-radius: 12px;
+  background: #0a1216cc;
+  box-shadow: inset 0 1px #ffffff08;
+}
+
+.service-feature > div {
+  position: relative;
+  min-width: 0;
+}
+
+.service-feature__icon {
+  position: relative;
+  flex: 0 0 auto;
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+
+.service-feature__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #00e7ec;
+  stroke-width: 1.7;
+  filter: drop-shadow(0 0 5px #00d8f073);
+}
+
+.service-feature h3 {
+  margin: 0 0 4px;
+  color: #fff;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.service-feature p {
+  margin: 0;
+  color: #cfd6da;
+  font-size: 13.5px;
+  line-height: 1.36;
+}
+
+/* Too narrow for four columns: words and art share a row with the services beneath. */
+@container (max-width: 860px) {
+  .service-panel__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+    padding: 18px;
+  }
+
+  .service-panel__divider {
+    display: none;
+  }
+
+  .service-features {
+    grid-column: 1 / -1;
+  }
+}
+
+@container (max-width: 560px) {
+  .service-features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container (max-width: 420px) {
+  .service-panel__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .service-panel__art {
+    width: min(170px, 62%);
+    margin: 0 auto;
+  }
+
+  .service-panel__explore {
+    margin-top: 0;
+  }
+}
+
+/* ---------- Connected systems ---------- */
+
+.service-systems ul {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-systems li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 11px 10px;
+  border: 1px solid #22323a;
+  border-radius: 12px;
+  background: #0a1216cc;
+  box-shadow: inset 0 1px #ffffff08;
+  color: #e8edef;
+  font-size: 14.5px;
+  line-height: 1.2;
+}
+
+.service-systems li svg {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  color: #00e7ec;
+  stroke-width: 1.7;
+}
+
+@container (max-width: 900px) {
+  .service-systems ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 460px) {
+  .service-systems ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Details that only appear as part of an animation ---------- */
+
+.service-ray {
+  opacity: 0.8;
+}
+
+.service-bulb-glow {
+  opacity: 0.6;
+}
+
+/* ---------- Motion: skipped entirely for people who ask for reduced motion ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Panels rise one after another. */
+  .service-panel {
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+  }
+
+  .service-panel.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s ease,
+      transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-panel__frame {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-panel:hover .service-panel__frame {
+    border-color: #1d6d80;
+    box-shadow: inset 0 1px #ffffff14, 0 24px 44px -28px #00cfe680;
+  }
+
+  /* A soft light that follows the mouse across the panel. */
+  .service-panel__frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(320px circle at var(--mx, 20%) var(--my, 50%), #00d8f01a, transparent 72%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .service-panel:hover .service-panel__frame::before {
+    opacity: 1;
+  }
+
+  .service-panel__number,
+  .service-panel h2,
+  .service-panel__copy > p,
+  .service-panel__explore {
+    opacity: 0;
+  }
+
+  .service-panel.is-revealed .service-panel__number,
+  .service-panel.is-revealed h2,
+  .service-panel.is-revealed .service-panel__copy > p,
+  .service-panel.is-revealed .service-panel__explore {
+    animation: service-copy-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .service-panel.is-revealed h2 {
+    animation-delay: 0.08s;
+  }
+
+  .service-panel.is-revealed .service-panel__copy > p {
+    animation-delay: 0.16s;
+  }
+
+  .service-panel.is-revealed .service-panel__explore {
+    animation-delay: 0.26s;
+  }
+
+  .service-panel__divider {
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+  }
+
+  .service-panel.is-revealed .service-panel__divider {
+    animation: service-divider-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+  }
+
+  .service-panel__art {
+    transition: scale 0.4s cubic-bezier(0.34, 1.6, 0.64, 1);
+  }
+
+  .service-panel:hover .service-panel__art {
+    scale: 1.06;
+  }
+
+  /* The four services pop in, then a light moves around them: 2s each, 8s a pass. */
+  .service-feature {
+    opacity: 0;
+    transition:
+      translate 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.3s ease;
+  }
+
+  .service-panel.is-revealed .service-feature {
+    animation: service-feature-in 0.65s cubic-bezier(0.34, 1.4, 0.64, 1) calc(0.25s + var(--f) * 0.09s) both;
+  }
+
+  .service-feature:hover {
+    border-color: #1d8ea3;
+    translate: 0 -3px;
+  }
+
+  .service-feature::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, #00d8f024, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .service-panel.is-revealed .service-feature::before {
+    animation: service-feature-current 8s linear calc(1.5s + var(--p) * 0.6s + var(--f) * 2s) infinite;
+  }
+
+  .service-feature__icon {
+    transition: scale 0.35s cubic-bezier(0.34, 1.7, 0.64, 1);
+  }
+
+  .service-feature:hover .service-feature__icon {
+    scale: 1.14;
+  }
+
+  .service-panel.is-revealed .service-feature__icon svg {
+    animation: service-icon-turn 8s ease-in-out calc(1.5s + var(--p) * 0.6s + var(--f) * 2s) infinite;
+  }
+
+  /* Automation: gear and arrows turn against each other. Moved as whole layers, so the
+     glow is never redrawn. */
+  .is-revealed .sector-art--gear .sector-art__base,
+  .is-revealed .sector-art--gear .sector-art__live {
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+
+  .is-revealed .sector-art--gear .sector-art__base {
+    animation: service-spin 12s linear 1s infinite;
+  }
+
+  .sector-art--gear .sector-art__live {
+    filter: drop-shadow(0 0 8px #25d9f88f);
+  }
+
+  .is-revealed .sector-art--gear .sector-art__live {
+    animation: service-spin-back 18s linear 1s infinite;
+  }
+
+  /* Tools: bars rise in turn, the chart turns and the lines fill in. */
+  .is-revealed .service-bar {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: service-bar 4.4s cubic-bezier(0.34, 1.3, 0.64, 1) calc(1s + var(--d)) infinite;
+  }
+
+  .is-revealed .service-pie {
+    transform-box: view-box;
+    transform-origin: 140px 54px;
+    animation: service-spin 7s linear 1s infinite;
+  }
+
+  .is-revealed .service-line {
+    transform-box: fill-box;
+    transform-origin: 0 50%;
+    animation: service-line 4.4s cubic-bezier(0.65, 0, 0.35, 1) calc(1.2s + var(--d)) infinite;
+  }
+
+  /* Innovation: the bulb warms up and the rays light in turn. */
+  .is-revealed .service-bulb-glow {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: service-bulb 3.6s ease-in-out 1s infinite;
+  }
+
+  .is-revealed .service-filament {
+    animation: service-filament 3.6s ease-in-out 1s infinite;
+  }
+
+  .is-revealed .service-ray {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: service-ray 3.6s ease-in-out calc(1s + var(--d)) infinite;
+  }
+
+  /* Connected systems: pop in, then a signal crosses them from left to right. */
+  .service-systems li {
+    opacity: 0;
+    transition: translate 0.3s cubic-bezier(0.34, 1.6, 0.64, 1), border-color 0.25s ease;
+  }
+
+  .service-systems.is-revealed li {
+    animation: service-feature-in 0.6s cubic-bezier(0.34, 1.5, 0.64, 1) calc(var(--n) * 0.07s) both;
+  }
+
+  .service-systems li:hover {
+    border-color: #1d8ea3;
+    translate: 0 -3px;
+  }
+
+  .service-systems.is-revealed li svg {
+    animation: service-signal 6s ease-in-out calc(1.4s + var(--n) * 0.4s) infinite;
+  }
+
+  /* The pencil writes rather than taking the crosshair's half turn, which would flip it. */
+  .services-page .sector-steps.is-revealed .sector-step--2 .sector-step__icon svg {
+    animation: service-write 8s ease-in-out 3.4s infinite;
+  }
+}
+
+@keyframes service-copy-in {
+  from { opacity: 0; transform: translateX(-14px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes service-divider-in {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes service-feature-in {
+  from { opacity: 0; transform: scale(0.88) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes service-feature-current {
+  0% { opacity: 0; }
+  3%, 22% { opacity: 1; }
+  27%, 100% { opacity: 0; }
+}
+
+@keyframes service-icon-turn {
+  0%, 16%, 100% { transform: scale(1) rotate(0deg); }
+  5% { transform: scale(1.14) rotate(-6deg); }
+  10% { transform: scale(1.05) rotate(4deg); }
+}
+
+@keyframes service-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes service-spin-back {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes service-bar {
+  0% { transform: scaleY(0.25); }
+  26%, 82% { transform: scaleY(1); }
+  100% { transform: scaleY(0.25); }
+}
+
+@keyframes service-line {
+  0% { transform: scaleX(0); }
+  24%, 84% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+@keyframes service-bulb {
+  0%, 100% { opacity: 0.35; transform: scale(0.82); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes service-filament {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes service-ray {
+  0%, 100% { opacity: 0.3; transform: scale(0.82); }
+  40% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes service-signal {
+  0%, 12%, 100% { transform: translateY(0); }
+  5% { transform: translateY(-4px) scale(1.1); }
+}
+
+@keyframes service-write {
+  0%, 24%, 100% { transform: translate(0, 0) rotate(0deg); }
+  6% { transform: translate(-3px, 2px) rotate(-8deg); }
+  12% { transform: translate(2px, 2px) rotate(-3deg); }
+  18% { transform: translate(5px, 0) rotate(-8deg); }
+}

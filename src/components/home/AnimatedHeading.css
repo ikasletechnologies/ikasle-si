@@ -1,0 +1,92 @@
+.section-heading {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #f7f9fa;
+  font-size: clamp(26px, 3.5cqi, 38px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.8px;
+}
+
+/* The bottom padding stops the reveal mask cropping descenders like the g in "Growth". */
+.section-heading__word {
+  display: inline-block;
+  overflow: hidden;
+  margin-bottom: -0.14em;
+  padding-bottom: 0.14em;
+  vertical-align: bottom;
+}
+
+.section-heading__word > span {
+  display: inline-block;
+}
+
+.section-heading__word--accent > span {
+  background: linear-gradient(90deg, #8ef2ff, #d8fbff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-heading__rule {
+  position: relative;
+  overflow: hidden;
+  width: 56px;
+  height: 4px;
+  margin: 13px auto 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #00a8f0, #00e7ec);
+  box-shadow: 0 0 12px #00dce699;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .section-heading__word > span {
+    transform: translateY(112%);
+  }
+
+  .section-heading.is-revealed .section-heading__word > span {
+    animation: heading-word-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--w) * 45ms);
+  }
+
+  .section-heading__rule {
+    transform: scaleX(0);
+  }
+
+  .section-heading.is-revealed .section-heading__rule {
+    animation: heading-rule-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+  }
+
+  .section-heading__rule::after {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 18px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transform: translateX(-20px);
+    animation: heading-rule-sweep 3.2s ease-in-out 1.3s infinite;
+  }
+
+  .section-heading.is-paused .section-heading__rule::after {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes heading-word-up {
+  from { transform: translateY(112%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes heading-rule-in {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes heading-rule-sweep {
+  0% { transform: translateX(-20px); }
+  45%, 100% { transform: translateX(60px); }
+}
