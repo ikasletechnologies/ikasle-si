@@ -8,7 +8,7 @@ export function App() {
   const [activePage, setActivePage] = useState<PageName>('AI Solutions')
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isChatOpen, setIsChatOpen] = useState(false)
-  const [isNewConversation, setIsNewConversation] = useState(false)
+  const [isNewConversation, setIsNewConversation] = useState(true)
   const { messages, busy, send, stop, reset } = useAgent()
   const isHome = activePage === 'Home'
   const isSolutions = activePage === 'AI Solutions'
@@ -31,6 +31,7 @@ export function App() {
   const ask = (text: string) => {
     void send(text)
     setIsChatOpen(true)
+    setIsNewConversation(true)
     setIsSidebarOpen(false)
   }
 
@@ -43,6 +44,7 @@ export function App() {
   return <div className="app-shell">
     <Sidebar
       activePage={activePage}
+      isConversationActive={isNewConversation || isChatOpen}
       isOpen={isSidebarOpen}
       onClose={() => setIsSidebarOpen(false)}
       onNavigate={navigate}
