@@ -254,8 +254,17 @@
 }
 
 @container (max-width: 620px) {
+  /* Quick Links holds two short columns of its own, so it gets the room it needs first. */
   .site-footer__columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr) max-content;
+  }
+
+  .site-footer__quick {
+    column-gap: 14px;
+  }
+
+  .site-footer__columns > .site-footer__column:nth-child(2) {
+    padding-right: 12px;
   }
 
   .site-footer__columns > .site-footer__column:nth-child(4) {
