@@ -1,6 +1,6 @@
-import { AppWindow, BookOpen, Bot, Box, Boxes, Building2, CodeXml, Coins, ConciergeBell, Crosshair, Database, FileText, FlaskConical, Globe, Handshake, Headset, House, Info, Layers, Link2, Mail, MapPin, MessageCircle, Monitor, Newspaper, Pencil, Phone, Puzzle, RefreshCw, Search, Sprout, SquareCheckBig, TrendingUp, UserRound, Users, Workflow } from 'lucide-react'
+import { AppWindow, BellRing, BookOpen, Bot, Box, Boxes, Building2, CalendarClock, ChartColumn, CodeXml, Coins, ConciergeBell, Crosshair, Database, FileText, FlaskConical, Globe, Handshake, Headset, House, Info, Layers, Link2, Mail, MapPin, MessageCircle, Monitor, Newspaper, Pencil, Phone, Puzzle, ReceiptText, RefreshCw, Search, Sparkles, Sprout, SquareCheckBig, TrendingUp, UserRound, Users, Workflow } from 'lucide-react'
 import { ApproveArt, AssignArt, CaptureArt, CoinsArt, CubeArt, HandshakeArt, HeadsetArt, NotifyArt } from '@/components/automation/AutomationArt'
-import { BulbArt, ChatArt, LaptopArt, TurningGearArt } from '@/components/services/ServiceArt'
+import { BulbArt, ChatArt, ChatHeroArt, LaptopArt, TurningGearArt } from '@/components/services/ServiceArt'
 import { BagArt, CapArt, CaseArt, FactoryArt, GrowthBarsIcon, TowerArt, TruckArt } from '@/components/industries/SectorArt'
 import { InstagramIcon, LinkedInIcon } from '@/components/contact/SocialIcons'
 import { BriefcaseIcon, CapIcon, CartIcon, FactoryIcon, TowerIcon, TruckIcon } from '@/components/home/IndustryIcons'
@@ -8,7 +8,7 @@ import { LayersGrowIcon, PeopleIcon, TargetIcon } from '@/components/home/WhyIco
 import { ApprovalIcon, CalendarIcon, EnquiryIcon, InventoryIcon, QuotationIcon, ReportsIcon } from '@/components/home/ToolsIcons'
 import { ChartArt, ChipArt, GearArt, GrowthChartArt } from '@/components/home/GrowthArt'
 import { ChatIcon, DocumentIcon, LayersIcon, LinkIcon, SearchIcon, SparkleIcon } from '@/components/home/TeamIcons'
-import type { ArtTile, AutomateItem, ConnectedSystem, ContactDetail, FaqItem, ServiceGroup, GrowthCard, IconCard, NavigationItem, PageName, ProcessStep, SocialLink, Solution, TeamCard, ToolCard } from '@/types'
+import type { ArtTile, AutomateItem, ConnectedSystem, ContactDetail, FaqItem, ServiceGroup, GrowthCard, IconCard, NavigationItem, OfferingContent, PageName, ProcessStep, SocialLink, Solution, TeamCard, ToolCard } from '@/types'
 
 export const automationHero = {
   eyebrow: 'BUSINESS AUTOMATION',
@@ -171,6 +171,82 @@ export const sectorTrust: IconCard[] = [
   { title: 'Human Review & Control', description: 'Keep the right oversight, with people in control of key decisions and important interactions.', icon: UserRound },
   { title: 'Room to Grow', description: 'Start with what you need today and expand over time as your business goals evolve.', icon: GrowthBarsIcon },
 ]
+
+const serviceFeatures = (page: PageName) => serviceGroups.find((group) => group.page === page)?.features ?? []
+
+// No designs exist for these pages. The cards reuse wording from elsewhere on the site, but the
+// hero lines, section headings and contact prompts marked "draft" are new, so review them before launch.
+export const offeringPages: Record<'AI Solutions' | 'Intelligent Tools' | 'Business Innovation', OfferingContent> = {
+  'AI Solutions': {
+    hero: {
+      eyebrow: 'AI SOLUTIONS',
+      lines: 'AI built around',
+      accent: 'your business.',
+      text: 'Practical AI solutions that help your team access knowledge, simplify work and turn information into action.',
+      action: 'Discuss Your Requirements',
+    },
+    art: ChatHeroArt,
+    features: {
+      heading: 'Make information more useful.',
+      text: 'Give people better support.',
+      cards: serviceFeatures('AI Solutions'),
+    },
+    more: {
+      heading: 'AI That Helps Your Team Get Work Done',
+      cards: [
+        { title: 'Internal Knowledge Search', description: 'Find the right information across your business, instantly.', icon: Layers },
+        { title: 'Generative AI', description: 'Create drafts, summaries and business content faster.', icon: Sparkles },
+        { title: 'AI Search & Recommendations', description: 'Get relevant information, insights and next best actions.', icon: Search },
+      ],
+    },
+    contact: { heading: 'What would you like AI to help with?', action: 'Let’s Talk' }, // draft
+  },
+  'Intelligent Tools': {
+    hero: {
+      eyebrow: 'INTELLIGENT BUSINESS TOOLS',
+      lines: 'Bring your information',
+      accent: 'and everyday work together.',
+      text: 'Custom business tools that turn your data and processes into clear, actionable insights.',
+      action: 'Discuss Your Requirements',
+    },
+    art: LaptopArt,
+    features: {
+      heading: 'Custom tools for your business', // draft
+      cards: serviceFeatures('Intelligent Tools'),
+    },
+    more: {
+      heading: 'Practical Automation Tools',
+      cards: [
+        { title: 'AI Enquiry Assistant', description: 'Answer common queries, collect details and keep leads moving.', icon: Bot },
+        { title: 'Quotation Builder', description: 'Create accurate, consistent quotations in less time.', icon: ReceiptText },
+        { title: 'Approval Tracker', description: 'Manage requests, approvals and status updates in one place.', icon: SquareCheckBig },
+        { title: 'Payment Reminders', description: 'Send timely, friendly reminders and reduce payment delays.', icon: CalendarClock },
+        { title: 'Inventory Alerts', description: 'Get notified on low stock, reorders and key inventory changes.', icon: BellRing },
+        { title: 'Management Reports', description: 'Generate clear, ready-to-use reports for better decisions.', icon: ChartColumn },
+      ],
+    },
+    contact: { heading: 'What would you like to see in one place?', action: 'Let’s Talk' }, // draft
+  },
+  'Business Innovation': {
+    hero: {
+      eyebrow: 'BUSINESS INNOVATION',
+      lines: 'Turn your next idea',
+      accent: 'into a working solution.',
+      text: 'Explore and build new, smarter ways of working with AI and digital automation.',
+      action: 'Discuss Your Requirements',
+    },
+    art: BulbArt,
+    features: {
+      heading: 'From first question to working product', // draft
+      cards: serviceFeatures('Business Innovation'),
+    },
+    more: {
+      heading: sectorTrustHeading,
+      cards: sectorTrust,
+    },
+    contact: { heading: 'Have an idea worth testing?', text: serviceContact.text, action: 'Let’s Talk' }, // draft
+  },
+}
 
 export const sectorContact = {
   heading: 'Don’t see your industry here?',

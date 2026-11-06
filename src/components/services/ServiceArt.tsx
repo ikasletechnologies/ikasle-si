@@ -11,6 +11,10 @@ export function ChatArt() {
   return <ContactArt variant="card" />
 }
 
+export function ChatHeroArt() {
+  return <ContactArt variant="hero" />
+}
+
 const ARROW = <>
   <path d="M28 62a76 76 0 0 1 118-26" strokeWidth="8" />
   <path d="M136 16l28 28-38 8z" fill="#58e6fb" strokeWidth="2.4" />

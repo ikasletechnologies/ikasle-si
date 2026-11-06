@@ -59,6 +59,28 @@ export interface ServiceGroup {
   features: IconCard[]
 }
 
+export interface PageHeroContent {
+  eyebrow: string
+  lines: string
+  accent: string
+  text: string
+  action: string
+}
+
+export interface OfferingSection {
+  heading: string
+  text?: string
+  cards: IconCard[]
+}
+
+export interface OfferingContent {
+  hero: PageHeroContent
+  art: ComponentType
+  features: OfferingSection
+  more: OfferingSection
+  contact: { heading: string; text?: string; action: string }
+}
+
 export interface ArtTile {
   label: string
   art: ComponentType

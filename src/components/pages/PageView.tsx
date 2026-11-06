@@ -2,11 +2,11 @@ import { ArrowRight, Clock3, Sparkles } from 'lucide-react'
 import { ContactView } from '@/components/contact/ContactView'
 import { AutomationPage } from '@/components/automation/AutomationPage'
 import { ConnectionSection } from '@/components/home/ConnectionSection'
-import { GrowthSection } from '@/components/home/GrowthSection'
-import { ToolsSection } from '@/components/home/ToolsSection'
 import { FaqPage } from '@/components/legal/FaqPage'
 import { LegalPage } from '@/components/legal/LegalPage'
 import { ServicesPage } from '@/components/services/ServicesPage'
+import { OfferingPage } from '@/components/pages/OfferingPage'
+import { offeringPages } from '@/data/content'
 import { privacyIntro, privacySections, termsIntro, termsSections } from '@/data/legal'
 import { IndustriesPage } from '@/components/industries/IndustriesPage'
 import { ProcessSection } from '@/components/home/ProcessSection'
@@ -33,9 +33,7 @@ export function PageView({ page, onNavigate }: PageViewProps) {
   if (page === 'About Us') return <AboutView />
   if (page === 'Automation') return <AutomationPage onNavigate={onNavigate} />
   if (page === 'Services') return <ServicesPage onNavigate={onNavigate} />
-  // No designs yet for these two. The Services page links here, so show the closest existing section rather than a blank screen.
-  if (page === 'Intelligent Tools') return <div className="page-view"><ToolsSection /></div>
-  if (page === 'Business Innovation') return <div className="page-view"><GrowthSection /></div>
+  if (page === 'AI Solutions' || page === 'Intelligent Tools' || page === 'Business Innovation') return <OfferingPage key={page} content={offeringPages[page]} onNavigate={onNavigate} />
   if (page === 'Industries') return <IndustriesPage onNavigate={onNavigate} />
   if (page === 'Blogs') return <BlogsView onNavigate={onNavigate} />
   if (page === 'Contact') return <ContactView />

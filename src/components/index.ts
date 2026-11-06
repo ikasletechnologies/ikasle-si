@@ -15,5 +15,6 @@ export { Sidebar } from './layout/Sidebar'
 export { SiteFooter } from './layout/SiteFooter'
 export { Topbar } from './layout/Topbar'
 export { SolutionsView } from './solutions/SolutionsView'
+export { NotFoundPage } from './pages/NotFoundPage'
 export { PageView } from './pages/PageView'
 

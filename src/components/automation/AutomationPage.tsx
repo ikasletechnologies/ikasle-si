@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react'
+import type { ComponentType, CSSProperties } from 'react'
 import { ChevronRight, MoveRight } from 'lucide-react'
 import '@/components/contact/ContactView.css'
 import { resetArt, tiltArt } from '@/components/home/followPointer'
@@ -7,7 +7,7 @@ import { ContactBand, Revealed, SectorHeading } from '@/components/industries/Se
 import { ConnectedSystems } from '@/components/services/ServicesPage'
 import { automationAreas, automationContact, automationFlow, automationHero, automationTools } from '@/data/content'
 import { inViewClass, useInView } from '@/hooks/useInView'
-import type { PageName } from '@/types'
+import type { PageHeroContent, PageName } from '@/types'
 import { AutomationHeroArt } from './AutomationArt'
 import './AutomationPage.css'
 
@@ -15,9 +15,9 @@ interface NavigateProps {
   onNavigate: (page: PageName) => void
 }
 
-function Hero({ onNavigate }: NavigateProps) {
+export function PageHero({ hero, art: Art, onNavigate }: NavigateProps & { hero: PageHeroContent; art: ComponentType }) {
   const { ref, inView, revealed } = useInView<HTMLElement>()
-  const { eyebrow, lines, accent, text, action } = automationHero
+  const { eyebrow, lines, accent, text, action } = hero
 
   return <header ref={ref} className={`contact-hero auto-hero${inViewClass(revealed, inView)}`} onPointerMove={tiltArt} onPointerLeave={resetArt}>
     <div className="contact-hero__copy">
@@ -32,7 +32,7 @@ function Hero({ onNavigate }: NavigateProps) {
         <span>{action}</span><ChevronRight aria-hidden="true" />
       </button>
     </div>
-    <AutomationHeroArt />
+    <Art />
   </header>
 }
 
@@ -58,7 +58,7 @@ export function AutomationPage({ onNavigate }: NavigateProps) {
   return <div className="page-view">
     <div className="sector-page automation-page">
       <SectorArtDefs />
-      <Hero onNavigate={onNavigate} />
+      <PageHero hero={automationHero} art={AutomationHeroArt} onNavigate={onNavigate} />
 
       <div className="auto-areas">
         {automationAreas.map(({ label, art: Art }, index) =>

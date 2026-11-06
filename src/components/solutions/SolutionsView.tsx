@@ -1,7 +1,8 @@
 ﻿import { ArrowRight, UserRound } from 'lucide-react'
 import { solutions } from '@/data/content'
+import type { PageName } from '@/types'
 
-export function SolutionsView() {
+export function SolutionsView({ onNavigate }: { onNavigate: (page: PageName) => void }) {
   return <section className="content">
     <div className="question-pill"><UserRound /><span>What AI solutions do you offer?</span></div>
     <div className="hero-copy">
@@ -16,6 +17,6 @@ export function SolutionsView() {
         <article key={title} tabIndex={0}><Icon /><h2>{title}</h2><p>{description}</p></article>
       )}
     </div>
-    <button className="explore-button">Explore AI Solutions <ArrowRight /></button>
+    <button type="button" className="explore-button" onClick={() => onNavigate('AI Solutions')}>Explore AI Solutions <ArrowRight /></button>
   </section>
 }
